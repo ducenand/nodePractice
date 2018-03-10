@@ -5,13 +5,13 @@ node实战操作
 18/03/07
 静态资源服务器
 
-### anydoor
+### anydoorwhere
 Tiny NodeJs Static Web Server.
 
 ### 安装
 
 ```
-npm i -g anydoor
+npm i -g anydoorwhere
 ```
 ### 使用方法
 
