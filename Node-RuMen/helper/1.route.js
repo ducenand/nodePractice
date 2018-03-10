@@ -4,7 +4,6 @@ const fs = require('fs');
 const stat = util.promisify(fs.stat);
 const readdir = util.promisify(fs.readdir);
 const Handlebars = require('handlebars');
-const config = require('../conf/1.conf');
 const mime = require('./1.mime');
 const compress = require('./1.compress');
 const range = require('./1.range');
@@ -14,7 +13,7 @@ const tplPath = path.join(__dirname, '../template/1.tpl.html');
 const source = fs.readFileSync(tplPath, 'utf8');
 const template = Handlebars.compile(source);
 
-module.exports = async function (req, res, filePath) {
+module.exports = async function (req, res, filePath,config) {
     try {
         const stats = await stat(filePath);
         if (stats.isFile()) {
