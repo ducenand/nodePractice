@@ -5,9 +5,10 @@ const stat = util.promisify(fs.stat);
 const readdir = util.promisify(fs.readdir);
 const Handlebars = require('handlebars');
 const config = require('../conf/1.conf');
-const mime = require('../helper/1.mime')
-const compress = require('../helper/1.compress');
-const range = require('../helper/1.range');
+const mime = require('./1.mime');
+const compress = require('./1.compress');
+const range = require('./1.range');
+const isFresh = require('./1.cache');
 
 const tplPath = path.join(__dirname, '../template/1.tpl.html');
 const source = fs.readFileSync(tplPath, 'utf8');
@@ -20,6 +21,12 @@ module.exports = async function (req, res, filePath) {
             const contentType = mime(filePath);
 
             res.setHeader("Content-Type", contentType);
+
+            if(isFresh(stats,req,res)) {
+                res.statusCode = 304;
+                res.end();
+                return;
+            }
             let rs;
             const {code, start, end} = range(stats.size, req, res);
             if (code === 200) {
