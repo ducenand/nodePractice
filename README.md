@@ -1,9 +1,10 @@
 # nodePractice
 node实战操作
 
-## 一、nodePractce>Node-RuMen>1.app.js
+## 一、nodePractice>Anydoorwhere>1.app.js
 18/03/07
 静态资源服务器
+> 包括浏览器缓存、压缩、range请求
 
 ### anydoorwhere
 Tiny NodeJs Static Web Server.
