@@ -1,0 +1,26 @@
+{
+  "name": "webpackTest",
+  "version": "1.0.0",
+  "description": "本地构建",
+  "main": "index.js",
+  "scripts": {
+    "webpack": "webpack"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ducenand/nodePractice.git"
+  },
+  "keywords": [
+    "webpack"
+  ],
+  "author": "Alan",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ducenand/nodePractice/issues"
+  },
+  "homepage": "https://github.com/ducenand/nodePractice#readme",
+  "devDependencies": {
+    "webpack": "^4.1.1",
+    "webpack-cli": "^2.0.12"
+  }
+}
