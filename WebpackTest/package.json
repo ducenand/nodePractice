@@ -20,7 +20,21 @@
   },
   "homepage": "https://github.com/ducenand/nodePractice#readme",
   "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-loader": "^7.1.4",
+    "babel-preset-env": "^1.6.1",
+    "babel-preset-react": "^6.24.1",
+    "css-loader": "^0.28.10",
+    "extract-text-webpack-plugin": "^4.0.0-beta.0",
+    "less": "^3.0.1",
+    "less-loader": "^4.1.0",
+    "style-loader": "^0.20.3",
+    "uglifyjs-webpack-plugin": "^1.2.3",
     "webpack": "^4.1.1",
     "webpack-cli": "^2.0.12"
+  },
+  "dependencies": {
+    "react": "^16.2.0",
+    "react-dom": "^16.2.0"
   }
 }
