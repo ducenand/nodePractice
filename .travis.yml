@@ -1,11 +1,14 @@
 language: node_js
 node_js:
-  - "7"
   - "8"
   - "9"
 brancher:
   only:
     - "dev"
     - "master"
+install:
+  - "npm install --prefix ./Testing"
+  - "npm install -g codecov"
 script:
-  - "npm install --prefix ./Testing && npm run cover --prefix ./Testing"
+  - "npm run cover --prefix ./Testing"
+  - "codecov"

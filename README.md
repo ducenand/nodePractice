@@ -132,8 +132,8 @@ tree shaking 是一个术语，通常用于描述移除 JavaScript 上下文中�
 
 
 ## 三、测试
-
-
+[![Build Status](https://travis-ci.org/ducenand/nodePractice.svg?branch=master)](https://travis-ci.org/ducenand/nodePractice)
+[![codecov](https://codecov.io/gh/ducenand/nodePractice/branch/master/graph/badge.svg)](https://codecov.io/gh/ducenand/nodePractice)
 
 
 
