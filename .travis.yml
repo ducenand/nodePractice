@@ -8,4 +8,4 @@ brancher:
     - "dev"
     - "master"
 script:
-  - "npm run cover --prefix ./Testing"
+  - "npm install --prefix ./Testing && npm run cover --prefix ./Testing"
