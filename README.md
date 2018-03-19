@@ -345,7 +345,7 @@ PuppeteerTest
 [cheerio git 地址](https://github.com/cheeriojs/cheerio)
 > 弊端对网站中反爬虫不起作用，实现请参考下面node栏下这两篇文章：
 - node入门 简单实现爬虫 PuppeteerTest->src->cheerio01.js
-- node爬虫升级版 PuppeteerTest->src->cheerio01.js
+- node爬虫升级版 PuppeteerTest->src->cheerio02.js
 
 
 #### puppeteer 爬虫
