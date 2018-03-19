@@ -344,8 +344,8 @@ PuppeteerTest
 #### cheerio 爬虫
 [cheerio git 地址](https://github.com/cheeriojs/cheerio)
 > 弊端对网站中反爬虫不起作用，实现请参考下面node栏下这两篇文章：
-- node入门 简单实现爬虫
-- node爬虫升级版
+- node入门 简单实现爬虫 PuppeteerTest->src->cheerio01.js
+- node爬虫升级版 PuppeteerTest->src->cheerio01.js
 
 
 #### puppeteer 爬虫
@@ -353,7 +353,7 @@ PuppeteerTest
 
 > 介绍
 
-你可以在浏览器中手动完成的大部分事情都可以使用==Puppeteer==完成！比如：
+你可以在浏览器中手动完成的大部分事情都可以使用Puppeteer完成！比如：
 
 - 生成页面的截图和PDF.
 - 抓取SPA并生成预先呈现的内容（即“SSR”）
