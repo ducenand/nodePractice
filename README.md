@@ -135,7 +135,180 @@ tree shaking 是一个术语，通常用于描述移除 JavaScript 上下文中�
 [![Build Status](https://travis-ci.org/ducenand/nodePractice.svg?branch=master)](https://travis-ci.org/ducenand/nodePractice)
 [![codecov](https://codecov.io/gh/ducenand/nodePractice/branch/master/graph/badge.svg)](https://codecov.io/gh/ducenand/nodePractice)
 
+#### nodejs断言 assert
+[更多 assert Api点击查看](http://nodejs.cn/api/assert.html)
 
+```
+const assert = require('assert');
+const {add,mul} = require('../src/math');
+
+// 最原始的测试方法
+if(add(2,3)===5){
+     console.log('0k');
+}else{
+console.log('error');
+}
+
+//node assert测试
+assert.equal(add(2,3),5,'错误');
+
+```
+
+第三方类库 chai 
+
+[点击查看更多详情](http://www.chaijs.com/)
+
+```javascript
+const {should,expect,assert} = require('chai');
+should();
+add(2,3).should.equal(5);
+expect(add(2,3)).to.equal(5);
+assert.equal(add(2,3),5);
+```
+
+#### Mocha
+
+[了解更多请点击](https://mochajs.org/)
+
+```javascript
+//mocha.js
+const {should, expect, assert} = require('chai');
+const {add, mul ,cover} = require('../src/math');
+
+
+describe('#math', () => {
+    describe('add', () => {
+        it('should return 5 when 2 + 3',()=>{
+            expect(add(2,3),5);
+        });
+        // it.only 只执行这一个
+        // it.skip 跳过这个执行
+        it('should return -1 when 2 + -3',()=>{
+            expect(add(2,-3),-1);
+        });
+    });
+    describe('mul', () => {
+        it('should return 6 when 2 * 3',()=>{
+            expect(mul(2,3),6);
+        })
+    });
+
+    describe('cover',()=>{
+        it('should return 1 when cover(2,1)',()=>{
+           expect(cover(2,1)).to.equal(1);
+        });
+        it('should return 1 when cover(1,2)',()=>{
+            expect(cover(1,2)).to.equal(1);
+        });
+
+        it('should return 12 when cover(2,2)',()=>{
+            expect(cover(2,2)).to.equal(12);
+        });
+    })
+});
+```
+```javascript
+// math.js
+function min(a, b) {
+    const c = 3;
+    return (b + a) * c;
+}
+
+module.exports = {
+    add: (...args) => {
+        return args.reduce((prev, curr) => {
+            return prev + curr;
+        })
+    },
+    mul: (...args) => {
+        return args.reduce((prev, curr) => {
+            return prev * curr;
+        })
+    },
+    cover: (a, b) => {
+        if (a > b) {
+            return a - b;
+        } else if (a < b) {
+            return b - a;
+        } else {
+            return min(a, b);
+        }
+
+    }
+
+};
+```
+
+
+> 运行
+
+```
+npm test
+```
+#### 测试 覆盖率 istanbul
+[了解更多请点击](https://github.com/gotwarlost/istanbul)
+
+> 运行
+
+![image](http://qiniu.ducen.cn/node-testing/QQ20180316-135128.png)
+
+```
+npm run cover
+```
+
+> 运行结果
+
+![image](http://qiniu.ducen.cn/node-testing/istanbul.png)
+
+#### 持续集成
+
+> 定义
+
+持续集成是一种软件开发流程，有两个特征。
+- 频繁地将代码集成到主干
+- 每次集成都通过自动化的构建来验证
+
+> 好处
+
+- 尽早发现错误
+- 防止分支大幅偏离主干
+
+
+
+[travis持续集成网站配置](https://travis-ci.org/)
+
+[codecov覆盖率图标生成](https://codecov.io/)
+
+[github各种图标集合](https://github.com/dwyl/repo-badges)
+```
+# .travis.yml 文件
+language: node_js
+node_js:
+  - "8"
+  - "9"
+brancher:
+  only:
+    - "dev"
+    - "master"
+install:
+  - "npm install --prefix ./Testing"
+  - "npm install -g codecov"
+script:
+  - "npm run cover --prefix ./Testing"
+  - "codecov"
+```
+
+#### Benchmark.js 性能测试
+
+[查看更多请点击](https://benchmarkjs.com/)
+
+[线上性能测试](https://jsperf.com/)
+
+
+#### UI测试
+
+##### Jest
+##### webdriver
 
 
 
