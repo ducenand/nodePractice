@@ -5,7 +5,10 @@ logs
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
-
+/**/img/*.png
+/**/mn/*.png
+/**/mn/*.jpg
+/**/mn/*.gif
 
 /**/build/
 

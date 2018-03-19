@@ -303,12 +303,76 @@ script:
 [查看更多请点击](https://benchmarkjs.com/)
 
 [线上性能测试](https://jsperf.com/)
+```javascript
+const Benchmark = require('benchmark');
+
+const suite = new Benchmark.Suite;
+
+// add tests
+suite.add('RegExp#test', function () {
+    /o/.test('Hello World!');
+    })
+    .add('String#indexOf', function () {
+        'Hello World!'.indexOf('o') > -1;
+    })
+    .add('String#match', function () {
+        !!'Hello World!'.match(/o/);
+    })
+    // add listeners
+    .on('cycle', function (event) {
+        console.log(String(event.target));
+    })
+    .on('complete', function () {
+        console.log('Fastest is ' + this.filter('fastest').map('name'));
+    })
+    // run async
+    .run({'async': true});
+```
+
+
 
 
 #### UI测试
 
 ##### Jest
 ##### webdriver
+
+## 爬虫
+
+PuppeteerTest
+
+#### cheerio 爬虫
+[cheerio git 地址](https://github.com/cheeriojs/cheerio)
+> 弊端对网站中反爬虫不起作用，实现请参考下面node栏下这两篇文章：
+- node入门 简单实现爬虫
+- node爬虫升级版
+
+
+#### puppeteer 爬虫
+[puppeteer git 仓库](https://github.com/GoogleChrome/puppeteer)
+
+> 介绍
+
+你可以在浏览器中手动完成的大部分事情都可以使用==Puppeteer==完成！比如：
+
+- 生成页面的截图和PDF.
+- 抓取SPA并生成预先呈现的内容（即“SSR”）
+- 自动表单提交，UI测试，键盘输入等。
+- 创建一个最新的自动化测试环境。使用最新的JavaScript和浏览器功能，直接在最新版本的Chrome中运行测试。
+- 捕获您网站的时间线跟踪，以帮助诊断性能问题。
+
+> Api请参考git官网
+
+[puppeteer Api](https://github.com/GoogleChrome/puppeteer/blob/master/docs/api.md#)
+
+#### Puppeteer -> screenshot.js
+> 实现浏览器截屏 
+
+#### Puppeteer -> get-dimensions.js
+> 获取浏览器信息
+
+#### Puppeteer -> mn.js
+> 爬取image.baidu.com首页图片
 
 
 
