@@ -1,0 +1,15 @@
+{
+  "name": "nodeapi",
+  "version": "1.0.0",
+  "description": "",
+  "main": "1.module.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "hello_test_ducenand": "^1.0.0",
+    "math": "0.0.3"
+  }
+}

@@ -1,0 +1,11 @@
+{
+  "name": "hello_test_ducenand",
+  "version": "1.0.0",
+  "description": "test",
+  "main": "hello.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "adu",
+  "license": "ISC"
+}
