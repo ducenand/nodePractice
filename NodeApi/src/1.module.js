@@ -1,7 +1,7 @@
 const fs = require('fs');
 
 //查看可引入文件扩展名
-console.log(require.extensions);
+// console.log(require.extensions);
 //{ '.js': [Function], '.json': [Function], '.node': [Function] }
 
 // var Math = require('math');
@@ -35,7 +35,19 @@ console.log(require.extensions);
 
 //console.log(process);
 
+function req(moduleName) {
+    let content = fs.readFileSync(moduleName,'utf8');
+    console.log(content);
+    let fn = new Function('exports','module','require','__dirname','__filename',content + '\n return module.exports');
+    let module = {
+      exports:{}
+    };
 
+    return fn(module.exports,module,req,__dirname,__filename);
+}
 
+let str = req('./1.common.js');
+
+console.log(str);
 
 
